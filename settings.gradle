@@ -1,0 +1,3 @@
+include ':emptytestlibrary'
+include ':app'
+rootProject.name = "Empty Test Project"

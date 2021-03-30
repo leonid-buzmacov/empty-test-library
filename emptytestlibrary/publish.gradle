@@ -1,0 +1,50 @@
+apply plugin: "maven-publish"
+
+// Artifact parameters
+def sdkGroupId = 'com.emptytestproject'
+def sdkArtifactId = 'empty-test-library'
+def sdkVersion = '1.0'
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                artifact androidJavadocsJar
+                artifact androidSourcesJar
+
+                groupId = sdkGroupId
+                artifactId = sdkArtifactId
+                version = sdkVersion
+
+                pom {
+                    name = sdkArtifactId
+                    description = 'Empty test library'
+                    url = 'https://example.com'
+
+                    licenses {
+                        license {
+                            name = 'The MIT License (MIT)'
+                            url = 'https://opensource.org/licenses/MIT'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'test'
+                            name = 'Test Test'
+                            email = 'test@example.com'
+                        }
+                    }
+
+                    scm {
+                        connection = 'scm:git:git://github.com/leonid-buzmacov/empty-test-library.git'
+                        developerConnection = 'scm:git:ssh://github.com/leonid-buzmacov/empty-test-library.git'
+                        url = 'https://github.com/leonid-buzmacov/empty-test-library'
+                    }
+                }
+            }
+        }
+    }
+}
