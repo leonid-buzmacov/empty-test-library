@@ -16,3 +16,5 @@ public class MainActivity extends AppCompatActivity {
         new EmptyClass().uselessMethod();
     }
 }
+
+// changes made in the develop branch
